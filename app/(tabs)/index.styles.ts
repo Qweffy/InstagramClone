@@ -1,8 +1,5 @@
-// index.styles.ts
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import { Colors } from '@/constants/Colors';
-
-// Definir los tipos de estilo
 interface Styles {
   container: ViewStyle;
   postContainer: ViewStyle;
@@ -12,11 +9,10 @@ interface Styles {
   loader: ViewStyle;
 }
 
-// Definir los estilos
 const styles = StyleSheet.create<Styles>({
   container: {
     flex: 1,
-    backgroundColor: Colors.background, // Color del fondo
+    backgroundColor: Colors.background,
   },
   postContainer: {
     padding: 16,
@@ -25,19 +21,19 @@ const styles = StyleSheet.create<Styles>({
   },
   postName: {
     fontWeight: 'bold',
-    fontSize: 16, // Ajustamos el tamaño de fuente
+    fontSize: 16,
   },
   postDescription: {
     marginTop: 8,
     color: 'gray',
-    fontSize: 14, // Añadimos tamaño de fuente
+    fontSize: 14,
   },
   listContainer: {
     backgroundColor: Colors.background,
     flex: 1,
   },
   loader: {
-    marginVertical: 16, // Espaciado alrededor del ActivityIndicator
+    marginVertical: 16,
   },
 });
 
