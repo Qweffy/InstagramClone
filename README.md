@@ -1,50 +1,33 @@
-# Welcome to your Expo app 👋
+# Instagram Clone - React Native with Expo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project is a simplified Instagram clone built using **React Native** with **Expo**. It fetches posts from an API and displays them in a feed similar to Instagram. Key features include a tab-based navigation system and dynamic post loading with pagination.
 
-## Get started
+## Avatar URL Issue
 
-1. Install dependencies
+The project initially aimed to load avatar images from a given API. However, due to accessibility issues with the URLs (e.g., **DNS_PROBE_FINISHED_NXDOMAIN**), the avatar images could not be fetched successfully. As a fallback, a default avatar image is provided for cases where the image URL is not accessible.
 
-   ```bash
-   npm install
-   ```
+## Loading Posts
 
-2. Start the app
+By default, the app fetches and loads posts in batches. This prevents overloading the app by downloading all posts at once. Additionally, it provides a seamless scrolling experience, fetching more posts as the user scrolls down.
 
-   ```bash
+### Potential Improvement: Clear Posts on Tab Change
+
+Currently, the posts are retained when navigating between tabs. If the number of posts becomes very large, this might lead to increased memory usage. A possible optimization is to clear the posts from the state when switching away from the home tab, reducing memory consumption and ensuring the app remains performant. This could be implemented using **React Navigation**'s lifecycle events (`focus` and `blur`).
+
+## How to Run the App
+
+1. Clone the repository.
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
+3. Add your environment variables in `.env` file (e.g., API URL).
+4. Run the app:
+    ```bash
     npx expo start
-   ```
+    ```
 
-In the output, you'll find options to open the app in a
+## Future Improvements
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Caching**: Implement caching for the posts to avoid redundant API calls when switching tabs.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
