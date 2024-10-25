@@ -6,6 +6,7 @@ import 'react-native-reanimated';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
+import { HomeProvider } from '@/app/context/HomeContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,15 +26,17 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: Colors.background }}
-      edges={['top', 'left', 'right']}
-    >
-      <StatusBar style="light" />
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </SafeAreaView>
+    <HomeProvider>
+      <SafeAreaView
+        style={{ flex: 1, backgroundColor: Colors.background }}
+        edges={['top', 'left', 'right']}
+      >
+        <StatusBar style="light" />
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </SafeAreaView>
+    </HomeProvider>
   );
 }
